@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { FaReact, FaBars, FaTimes } from "react-icons/fa";
-import logo from "../assets/logo.png"; // ✅ Make sure logo is in /src/assets/logo.png
+
+import { FaBars, FaTimes } from "react-icons/fa";
+import logo from "../assets/logo.png"; // ✅ This is important
 
 const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -12,7 +12,7 @@ const Header = () => {
     return (
         <header className="bg-gray-900 text-white sticky top-0 z-50 shadow-md">
             <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
-                {/* Logo */}
+                {/* Logo with Name */}
                 <div className="flex items-center gap-3">
                     <img src={logo} alt="Logo" className="w-10 h-10 rounded-full" />
                     <div>
@@ -22,19 +22,19 @@ const Header = () => {
                 </div>
 
                 {/* Desktop Menu */}
-                <nav className="hidden md:flex space-x-8">
-                    {["Home", "About", "Skills", "Projects", "Services", "Contact"].map((item) => (
+                <nav className="hidden md:flex space-x-8 font-medium text-white">
+                    {["About", "Skills", "Projects", "Services", "Contact"].map((item) => (
                         <a
                             key={item}
                             href={`#${item.toLowerCase()}`}
-                            className="text-gray-300 hover:text-indigo-400 font-medium transition duration-300"
+                            className="hover:text-indigo-400 transition duration-300"
                         >
                             {item}
                         </a>
                     ))}
                 </nav>
 
-                {/* Hamburger */}
+                {/* Mobile Hamburger Icon */}
                 <div className="md:hidden">
                     <button onClick={toggleMobileMenu} className="text-2xl text-white">
                         {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
@@ -44,13 +44,13 @@ const Header = () => {
 
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
-                <div className="md:hidden bg-gray-800 px-6 pb-4">
-                    <nav className="flex flex-col gap-4 text-white">
-                        {["Home", "About", "Skills", "Projects", "Services", "Contact"].map((item) => (
+                <div className="md:hidden bg-gray-800 px-6 pb-4 shadow-md">
+                    <nav className="flex flex-col gap-4 font-medium text-gray-200">
+                        {["About", "Skills", "Projects", "Services", "Contact"].map((item) => (
                             <a
                                 key={item}
                                 href={`#${item.toLowerCase()}`}
-                                className="hover:text-indigo-400 transition"
+                                className="hover:text-indigo-400 transition duration-300"
                             >
                                 {item}
                             </a>
