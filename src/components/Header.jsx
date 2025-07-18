@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { FaReact, FaBars, FaTimes } from "react-icons/fa";
-import logo from "../assets/logo.png"; // ✅ Make sure path and name match
 
 const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -14,7 +13,7 @@ const Header = () => {
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 {/* Logo with text */}
                 <div className="flex items-center gap-2">
-                    <img src={logo} alt="Logo" className="w-10 h-10 rounded-full" />
+                    <img src="/logo.png" alt="Logo" className="w-10 h-10 rounded-full" />
                     <h1 className="text-2xl font-bold text-indigo-400 tracking-wide">
                         Sarfaraj Shaikh
                     </h1>
