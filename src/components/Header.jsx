@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaReact, FaBars, FaTimes } from "react-icons/fa";
+import logo from "../assets/logo.png"; // ✅ Make sure path and name match
 
 const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -11,9 +12,9 @@ const Header = () => {
     return (
         <header className="sticky top-0 z-50 bg-gray-900/80 backdrop-blur-md shadow-lg px-6 py-4">
             <div className="max-w-7xl mx-auto flex justify-between items-center">
-                {/* Logo / Name */}
+                {/* Logo with text */}
                 <div className="flex items-center gap-2">
-                    <FaReact className="text-indigo-400 text-3xl animate-spin-slow" />
+                    <img src={logo} alt="Logo" className="w-10 h-10 rounded-full" />
                     <h1 className="text-2xl font-bold text-indigo-400 tracking-wide">
                         Sarfaraj Shaikh
                     </h1>
@@ -32,9 +33,12 @@ const Header = () => {
                     ))}
                 </nav>
 
-                {/* Hamburger Icon */}
+                {/* Mobile Nav Icon */}
                 <div className="md:hidden">
-                    <button onClick={toggleMobileMenu} className="text-gray-300 text-2xl focus:outline-none">
+                    <button
+                        onClick={toggleMobileMenu}
+                        className="text-gray-300 text-2xl focus:outline-none"
+                    >
                         {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
                     </button>
                 </div>
